@@ -23,11 +23,7 @@ export default function Header() {
             className="flex items-center gap-3 cursor-pointer"
             onClick={() => setActiveTab("home")}
           >
-            <div className="bg-[#1e293b] p-2.5 rounded-full shadow-lg border border-slate-600">
-              <svg className="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 17a1 1 0 01-.707-.293l-7-7a1 1 0 011.414-1.414L10 14.586l6.293-6.293a1 1 0 011.414 1.414l-7 7A1 1 0 0110 17z" clipRule="evenodd" transform="rotate(180 10 10)" />
-              </svg>
-            </div>
+            <img src="/fkir.png" alt="logo" className="w-12 h-12 rounded-xl shadow-lg" />
             <div>
               <h1 className="text-xl font-bold tracking-wide text-[#c5a880]" style={{ fontFamily: "Cairo, sans-serif" }}>
                 مركز فكر العرب
