@@ -17,6 +17,9 @@ const tajawal = Tajawal({
 export const metadata: Metadata = {
   title: "مركز فكر العرب | رؤية، تشخيص، وحلول عملية",
   description: "منصة بحثية استراتيجية تهتم بالجوانب الفكرية الاستراتيجية للتحديات التي يواجهها العالم العربي",
+  icons: {
+    icon: "/fkir.png",
+  },
 };
 
 export default function RootLayout({
