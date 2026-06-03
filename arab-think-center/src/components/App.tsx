@@ -14,6 +14,9 @@ function AppContent() {
 
   return (
     <div className="text-slate-800">
+      <div className="bg-yellow-400 text-center py-2 px-4 text-sm font-semibold text-yellow-900">
+        هذا الموقع تجريبي — This is a demo version
+      </div>
       <Header />
       <main className="min-h-[calc(100vh-20rem)]">
         {activeTab === "home" && <HomePanel />}
