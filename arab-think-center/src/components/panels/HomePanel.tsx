@@ -4,53 +4,60 @@ import Image from "next/image";
 import { useApp } from "@/context/AppContext";
 import { articles } from "@/data/articles";
 
+const featured = {
+  badge: "تقرير أمني استراتيجي",
+  title: "إيران ودول الخليج: المعادلة الصفرية",
+  desc: "في ظل إخفاق الولايات المتحدة وإسرائيل في إسقاط النظام الإيراني، تواجه دول الخليج تحديات أمنية وجودية. قراءة في الحقائق العسكرية والجغرافية، وتحليل لنقاط الانكشاف، مع أربعة مقتربات متزامنة لاحتواء إيران وطرح مسألة الحليف البديل.",
+  index: 0,
+};
+
 const cards = [
   {
     badge: "دراسة استراتيجية",
     badgeClass: "text-emerald-600 bg-emerald-50",
     title: "تفكيك الاستراتيجية الروسية وتحليل الاستجابات العالمية",
     desc: "تحليل شامل وعميق للاستراتيجية الروسية، متجاوزاً التصريحات الرسمية إلى الجذور الفكرية والسلوكية والجيوسياسية من الفكر الإمبراطوري إلى واقعية التفكيك.",
-    index: 0,
+    index: 1,
   },
   {
     badge: "تقرير استشرافي",
     badgeClass: "text-amber-600 bg-amber-50",
     title: "الحرب الأمريكية الإيرانية وتداعياتها على شرق آسيا",
     desc: "قراءة استشرافية من منظور شرق آسيوي للصراع الإيراني الأمريكي وتداعياته العميقة على موازين الطاقة وسلاسل التوريد.",
-    index: 1,
+    index: 2,
   },
   {
     badge: "دراسة سوسيولوجية-سياسية",
     badgeClass: "text-blue-600 bg-blue-50",
     title: "العراق وإيران والثوابت والمنطقة الرمادية",
     desc: "دراسة نظرية جامعة في فلسفة الدولة والعدالة والكرامة الحضارية ومعادلة التماسك والتفكك عبر نموذج تباين العراق وإيران.",
-    index: 2,
+    index: 3,
   },
   {
     badge: "أطروحة فكرية",
     badgeClass: "text-red-600 bg-red-50",
     title: "المشروع السياسي والفكري والاستراتيجي الصيني",
     desc: "دراسة مقارنة للمشاريع الحضارية الكبرى وفهم عميق للرؤية الاستراتيجية الصينية القائمة على الفلسفات التاريخية وهندسة تيانشيا.",
-    index: 3,
+    index: 4,
   },
   {
     badge: "تشخيص سلوكي",
     badgeClass: "text-purple-600 bg-purple-50",
     title: "ظاهرة ترامب والشخصانية السياسية الأمريكية",
     desc: "تشخيص فني وسلوكي لأبعاد الشخصية الترامبية واستقراء نموذج السلوك وتأثيراته الهيكلية على تآكل الهيمنة والمؤسسات الأمريكية.",
-    index: 4,
+    index: 5,
   },
   {
     badge: "تنبؤ استراتيجي",
     badgeClass: "text-indigo-600 bg-indigo-50",
     title: "بنيامين نتنياهو: خريطة الدوافع ومصفوفة التنبؤ",
     desc: "بناء نموذج تنبؤي فائق الدقة لسلوك نتنياهو في مواجهة السيناريوهات الاستراتيجية والقضائية والائتلافية الحساسة.",
-    index: 5,
+    index: 6,
   },
 ];
 
 const stats = [
-  { value: "6", label: "ملفات دراسات كبرى مصنفة" },
+  { value: "7", label: "ملفات دراسات كبرى مصنفة" },
   { value: "12", label: "قاعدة ذهبية للتعامل مع الصين" },
   { value: "7", label: "قواعد للتعامل مع روسيا" },
   { value: "2026", label: "رصد محدث للقرن الحادي والعشرين" },
@@ -93,6 +100,67 @@ export default function HomePanel() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Featured lead article */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+        <div className="flex items-center gap-3 mb-5">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-rose-50 text-rose-600 border border-rose-100">
+            المقال الرئيسي
+          </span>
+          <span className="h-px flex-1 bg-slate-200" />
+        </div>
+
+        <article className="bg-white rounded-3xl shadow-md border border-slate-100 overflow-hidden grid grid-cols-1 lg:grid-cols-2 hover:shadow-xl transition duration-300">
+          <button
+            type="button"
+            onClick={() => openArticle(featured.index)}
+            className="relative block w-full aspect-[16/10] lg:aspect-auto lg:h-full bg-slate-100"
+            aria-label={featured.title}
+          >
+            <Image
+              src={articles[featured.index].imageSrc}
+              alt={articles[featured.index].imageAlt}
+              fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              priority
+              className="object-cover transition duration-300 hover:scale-105"
+            />
+          </button>
+
+          <div className="p-7 sm:p-10 flex flex-col justify-center">
+            <div className="flex flex-wrap items-center gap-3 mb-4">
+              <span className="text-xs font-bold px-2.5 py-1 rounded-md bg-rose-50 text-rose-600">
+                {featured.badge}
+              </span>
+              <span className="text-xs text-slate-400">
+                {articles[featured.index].author} — {articles[featured.index].date}
+              </span>
+            </div>
+            <h3
+              className="text-2xl sm:text-3xl font-black text-[#0f172a] leading-snug mb-4 cursor-pointer hover:text-[#c5a880] transition"
+              style={{ fontFamily: "Cairo, sans-serif" }}
+              onClick={() => openArticle(featured.index)}
+            >
+              {featured.title}
+            </h3>
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">{featured.desc}</p>
+            <div className="flex flex-wrap gap-3">
+              <button
+                onClick={() => openArticle(featured.index)}
+                className="bg-[#0f172a] hover:bg-slate-800 text-white font-bold px-6 py-3 rounded-xl shadow-sm transition duration-200 hover:-translate-y-0.5 text-sm"
+              >
+                اقرأ المقال كاملاً
+              </button>
+              <button
+                onClick={() => setActiveTab("contact")}
+                className="bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium px-6 py-3 rounded-xl transition duration-200 text-sm"
+              >
+                تواصل مع خبرائنا
+              </button>
+            </div>
+          </div>
+        </article>
       </div>
 
       {/* Cards Grid */}

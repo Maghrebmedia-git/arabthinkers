@@ -8,6 +8,7 @@ import { articles } from "@/data/articles";
 import { ArticleCategory } from "@/types";
 
 const catBadgeClass: Record<string, string> = {
+  "iran-gulf": "bg-rose-50 text-rose-600",
   russia: "bg-emerald-50 text-emerald-600",
   "iran-us": "bg-amber-50 text-amber-600",
   china: "bg-red-50 text-red-600",
@@ -24,6 +25,7 @@ const themeClasses = {
 
 const filterButtons: { label: string; value: ArticleCategory | "all" }[] = [
   { label: "الكل", value: "all" },
+  { label: "إيران والخليج", value: "iran-gulf" },
   { label: "روسيا", value: "russia" },
   { label: "إيران وأمريكا", value: "iran-us" },
   { label: "الصين", value: "china" },

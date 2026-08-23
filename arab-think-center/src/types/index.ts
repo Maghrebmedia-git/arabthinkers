@@ -1,4 +1,5 @@
 export type ArticleCategory =
+  | "iran-gulf"
   | "russia"
   | "iran-us"
   | "sykes-picot"
